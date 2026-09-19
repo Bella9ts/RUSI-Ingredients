@@ -1,0 +1,279 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Ingredients and allergen information for RUSI by Ruby products.">
+  <title>Ingredients and Allergens | RUSI by Ruby</title>
+  <style>
+    :root {
+      --green: #367b4a;
+      --green-dark: #225834;
+      --green-pale: #edf6ef;
+      --cream: #fffaf1;
+      --gold: #c8963e;
+      --ink: #273029;
+      --muted: #657069;
+      --line: #dfe7e0;
+      --white: #ffffff;
+    }
+
+    * { box-sizing: border-box; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      margin: 0;
+      color: var(--ink);
+      background: linear-gradient(180deg, var(--cream) 0, #fff 28rem);
+      font-family: Arial, Helvetica, sans-serif;
+      line-height: 1.55;
+    }
+
+    header {
+      padding: 2.4rem 1.2rem 2rem;
+      text-align: center;
+      background: var(--green-dark);
+      color: var(--white);
+    }
+
+    .logo {
+      display: block;
+      width: min(82vw, 340px);
+      height: auto;
+      margin: 0 auto 1.1rem;
+      padding: .7rem 1rem;
+      border-radius: 16px;
+      background: rgba(255, 255, 255, .97);
+      box-shadow: 0 8px 28px rgba(0, 0, 0, .18);
+    }
+
+    .brand {
+      margin: 0;
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: clamp(2rem, 8vw, 3.2rem);
+      letter-spacing: .05em;
+      line-height: 1;
+    }
+
+    .brand span {
+      display: block;
+      margin-top: .55rem;
+      color: #f5d797;
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: .78rem;
+      font-weight: 700;
+      letter-spacing: .18em;
+      text-transform: uppercase;
+    }
+
+    header h1 {
+      margin: 1.5rem 0 .4rem;
+      font-size: clamp(1.45rem, 5vw, 2.15rem);
+    }
+
+    header p {
+      max-width: 42rem;
+      margin: 0 auto;
+      color: #e4efe6;
+    }
+
+    main {
+      width: min(100% - 2rem, 880px);
+      margin: 0 auto;
+      padding: 2rem 0 3.5rem;
+    }
+
+    .notice {
+      margin-bottom: 1.5rem;
+      padding: 1rem 1.1rem;
+      border-left: 5px solid var(--gold);
+      border-radius: 0 10px 10px 0;
+      background: var(--white);
+      box-shadow: 0 5px 22px rgba(34, 88, 52, .08);
+    }
+
+    .notice p { margin: 0; }
+
+    nav {
+      display: flex;
+      flex-wrap: wrap;
+      gap: .55rem;
+      margin: 0 0 1.7rem;
+    }
+
+    nav a {
+      padding: .55rem .75rem;
+      border: 1px solid #bcd2c1;
+      border-radius: 999px;
+      color: var(--green-dark);
+      background: var(--green-pale);
+      font-size: .9rem;
+      font-weight: 700;
+      text-decoration: none;
+    }
+
+    nav a:hover,
+    nav a:focus-visible {
+      color: var(--white);
+      background: var(--green);
+      outline: none;
+    }
+
+    .product {
+      margin: 0 0 1rem;
+      padding: 1.35rem;
+      scroll-margin-top: 1rem;
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      background: var(--white);
+      box-shadow: 0 7px 24px rgba(34, 88, 52, .07);
+    }
+
+    .product h2 {
+      margin: 0 0 .85rem;
+      color: var(--green-dark);
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: 1.45rem;
+    }
+
+    .product-photo {
+      display: block;
+      width: 100%;
+      aspect-ratio: 3 / 2;
+      margin: 0 0 1rem;
+      border-radius: 10px;
+      object-fit: cover;
+      box-shadow: 0 3px 12px rgba(34, 88, 52, .12);
+    }
+
+    .label {
+      margin: .85rem 0 .25rem;
+      color: var(--green-dark);
+      font-size: .82rem;
+      font-weight: 800;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+    }
+
+    .product p { margin: 0; }
+
+    .allergen {
+      font-weight: 800;
+      text-decoration: underline;
+      text-decoration-thickness: .1em;
+      text-underline-offset: .12em;
+    }
+
+    .advice {
+      margin-top: .9rem !important;
+      padding: .75rem .85rem;
+      border-radius: 8px;
+      color: #362a12;
+      background: #fff4d7;
+    }
+
+    footer {
+      padding: 1.8rem 1.2rem;
+      text-align: center;
+      color: #e4efe6;
+      background: var(--green-dark);
+      font-size: .9rem;
+    }
+
+    footer strong { color: #fff; }
+
+    @media (max-width: 520px) {
+      header { padding-top: 2rem; }
+      main { width: min(100% - 1.2rem, 880px); }
+      .product { padding: 1.05rem; }
+      nav { gap: .4rem; }
+      nav a { font-size: .82rem; }
+    }
+
+    @media print {
+      body { background: #fff; }
+      header, footer { color: #000; background: #fff; }
+      header p, footer { color: #000; }
+      nav { display: none; }
+      .product { box-shadow: none; break-inside: avoid; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <img class="logo" src="assets/rusi-logo.webp" alt="RUSI by Ruby">
+    <h1>Ingredients and Allergen Information</h1>
+    <p>Ingredient information for our homemade savouries, sweet treats and drinks.</p>
+  </header>
+
+  <main>
+    <section class="notice" aria-label="Important allergen notice">
+      <p><strong>Allergen notice:</strong> Regulated allergens are shown in <span class="allergen">bold and underlined</span>. Recipes and supplier products can change, so please tell us about any allergy before ordering.</p>
+    </section>
+
+    <nav aria-label="Jump to a product">
+      <a href="#butter-cake">Butter Cake</a>
+      <a href="#puff-pastries">Chicken &amp; Cheese Puffs</a>
+      <a href="#samosas">Chicken Samosas</a>
+      <a href="#fish-bun">Fish Bun</a>
+      <a href="#coffee">Herbal Coffee</a>
+      <a href="#tea">Masala Tea</a>
+    </nav>
+
+    <article class="product" id="butter-cake">
+      <h2>Butter Cake</h2>
+      <img class="product-photo" src="assets/butter-cake.webp" alt="A slice of golden butter cake" loading="lazy">
+      <p class="label">Ingredients</p>
+      <p>Salted butter (<span class="allergen">MILK</span>), caster sugar, <span class="allergen">EGGS</span>, fortified <span class="allergen">WHEAT</span> flour [<span class="allergen">WHEAT</span> flour, calcium carbonate, iron, niacin, thiamin], whole <span class="allergen">MILK</span>, baking powder [raising agents: diphosphates, sodium carbonates; rice flour], Madagascan vanilla extract.</p>
+      <p class="advice"><strong>Allergen advice:</strong> Contains <span class="allergen">WHEAT</span>, <span class="allergen">MILK</span> and <span class="allergen">EGGS</span>.</p>
+    </article>
+
+    <article class="product" id="puff-pastries">
+      <h2>Chicken and Cheese Puff Pastries</h2>
+      <img class="product-photo" src="assets/chicken-cheese-puffs.webp" alt="Two golden chicken and cheese puff pastries" loading="lazy">
+      <p class="label">Ingredients</p>
+      <p>Puff pastry [<span class="allergen">WHEAT</span> flour, water, palm oil, rapeseed oil, ethanol, salt, lemon juice concentrate, emulsifier, deactivated yeast, flavouring, carotenes], chicken, potato, onion, cheddar cheese (<span class="allergen">MILK</span>), vegetable oil, garlic, ginger, curry leaves, chicken stock [salt, starch, palm fat, flavour enhancers: E621, E631, E627; potassium chloride, hydrogenated palm fat, sugar, flavourings, chicken fat, onion, chicken, carrot, burnt sugar, turmeric, <span class="allergen">CELERY</span>, garlic, parsley, maltodextrin, bell pepper, citric acid, rosemary extract], <span class="allergen">MUSTARD</span> seeds, fennel, garam masala, coriander, Kashmiri chilli, cumin, turmeric, salt, butter (<span class="allergen">MILK</span>), <span class="allergen">SESAME</span> seeds.</p>
+      <p class="advice"><strong>Allergen advice:</strong> Contains <span class="allergen">WHEAT</span>, <span class="allergen">MILK</span>, <span class="allergen">CELERY</span>, <span class="allergen">MUSTARD</span> and <span class="allergen">SESAME</span>.</p>
+    </article>
+
+    <article class="product" id="samosas">
+      <h2>Chicken Samosa Bites</h2>
+      <img class="product-photo" src="assets/chicken-samosas.webp" alt="Golden chicken samosa bites" loading="lazy">
+      <p class="label">Ingredients</p>
+      <p>Spring-roll pastry [<span class="allergen">WHEAT</span> flour, water, coconut oil, salt, sodium caseinate (<span class="allergen">MILK</span>), <span class="allergen">WHEAT</span> starch, maltodextrin, flour-treatment agent: ascorbic acid], chicken, potato, onion, vegetable oil, garlic, ginger, curry leaves, chicken stock [salt, starch, palm fat, flavour enhancers: E621, E631, E627; potassium chloride, hydrogenated palm fat, sugar, flavourings, chicken fat, onion, chicken, carrot, burnt sugar, turmeric, <span class="allergen">CELERY</span>, garlic, parsley, maltodextrin, bell pepper, citric acid, rosemary extract], <span class="allergen">MUSTARD</span> seeds, fennel, garam masala, coriander, Kashmiri chilli, cumin, turmeric, carom seeds, salt.</p>
+      <p class="advice"><strong>Allergen advice:</strong> Contains <span class="allergen">WHEAT</span>, <span class="allergen">MILK</span>, <span class="allergen">CELERY</span> and <span class="allergen">MUSTARD</span>.</p>
+    </article>
+
+    <article class="product" id="fish-bun">
+      <h2>Fish Bun</h2>
+      <img class="product-photo" src="assets/fish-bun.webp" alt="A golden Sri Lankan-style fish bun" loading="lazy">
+      <p class="label">Ingredients</p>
+      <p>Fortified <span class="allergen">WHEAT</span> flour [<span class="allergen">WHEAT</span> flour, calcium carbonate, iron, niacin, thiamin], jack mackerel (<span class="allergen">FISH</span>) [jack mackerel, sunflower oil, salt], potato, onion, leeks, butter (<span class="allergen">MILK</span>), <span class="allergen">EGG</span>, sugar, water, vegetable oil, yeast, garlic, curry leaves, <span class="allergen">MUSTARD</span> seeds, fennel, garam masala, coriander, Kashmiri chilli, black pepper, turmeric, salt, <span class="allergen">SESAME</span> seeds.</p>
+      <p class="advice"><strong>Allergen advice:</strong> Contains <span class="allergen">FISH</span>, <span class="allergen">WHEAT</span>, <span class="allergen">MILK</span>, <span class="allergen">EGG</span>, <span class="allergen">MUSTARD</span> and <span class="allergen">SESAME</span>.</p>
+    </article>
+
+    <article class="product" id="coffee">
+      <h2>Herbal Coffee</h2>
+      <img class="product-photo" src="assets/herbal-coffee.webp" alt="A cup of dark spiced herbal coffee" loading="lazy">
+      <p class="label">Ingredients</p>
+      <p>Water, sugar, coffee beans, coriander, cumin, dried ginger, cardamom, cinnamon, cloves, black pepper.</p>
+      <p class="advice"><strong>Allergen advice:</strong> No regulated allergens identified from the recipe supplied. Contains caffeine.</p>
+    </article>
+
+    <article class="product" id="tea">
+      <h2>Masala Tea</h2>
+      <img class="product-photo" src="assets/masala-tea.webp" alt="A warm cup of masala milk tea" loading="lazy">
+      <p class="label">Ingredients</p>
+      <p>Water, whole <span class="allergen">MILK</span>, sugar, black tea, cardamom, cinnamon, cloves, ginger.</p>
+      <p class="advice"><strong>Allergen advice:</strong> Contains <span class="allergen">MILK</span>.</p>
+    </article>
+  </main>
+
+  <footer>
+    <strong>RUSI by Ruby</strong><br>
+    Awakening your taste buds · Made at home with love<br>
+    Ingredient information last reviewed 19 September 2026
+  </footer>
+</body>
+</html>
